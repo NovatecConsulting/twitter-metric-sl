@@ -5,9 +5,8 @@ before_install:
 - pip install --user awscli
 - export PATH=$PATH:$HOME/.local/bin
 install:
-- "./gradlew buildZip"
+- "gradle buildZip"
 script:
-- "./gradlew buildZip"
 - "./upload-to-aws-lambda.sh"
 env:
   global:
