@@ -1,0 +1,41 @@
+buildscript {
+    ext.java_version = '1.8'
+
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "com.github.jengelman.gradle.plugins:shadow:2.0.2" //Gradle plugin to create fat/uber JARs, apply file transforms, and relocate packages for applications and libraries
+        classpath "org.twitter4j:twitter4j-core:4.0.4"
+    }
+}
+
+group 'de.novatec.metriccollector.twitter'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: "com.github.johnrengelman.shadow"
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+
+dependencies {
+    compile 'org.twitter4j:twitter4j-core:4.0.4'
+    compile 'com.google.code.gson:gson:2.8.2'
+}
+
+
+task buildZip(type: Zip) {
+    from compileJava
+    from processResources
+    into('lib') {
+        from configurations.runtime
+    }
+}
+build.dependsOn buildZip
