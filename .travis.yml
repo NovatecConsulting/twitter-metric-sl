@@ -7,6 +7,7 @@ before_install:
 install:
 - "gradle buildZip"
 script:
+- "gradle buildZip"
 - "./upload-to-aws-lambda.sh"
 env:
   global:
