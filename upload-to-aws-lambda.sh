@@ -21,4 +21,5 @@ echo $envVar
 
 aws lambda update-function-configuration \
 --function-name=TweetsCounter \
+--region=eu-central-1 \
 --environment "$envVar"
