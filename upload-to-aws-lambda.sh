@@ -21,4 +21,4 @@ echo $envVar
 
 aws lambda update-function-configuration \
 --function-name=TweetsCounter \
---environment $envVar
+--environment '$envVar'
