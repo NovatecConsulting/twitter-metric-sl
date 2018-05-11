@@ -2,9 +2,9 @@ language: java
 jdk:
 - oraclejdk8
 before_install:
-- pip install --upgrade pip
 - pip install --user awscli
-- pip install awscli --upgrade
+- pip install --upgrade --user awscli pip
+- pip install awscli --user awscli --upgrade
 - export PATH=$PATH:$HOME/.local/bin
 install:
 - gradle buildZip
