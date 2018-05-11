@@ -17,7 +17,7 @@ envVar=$(cat <<EOF
 EOF
 )
 
-
+echo $envVar
 
 aws lambda update-function-configuration \
 --function-name=TweetsCounter \
