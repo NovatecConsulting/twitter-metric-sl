@@ -7,6 +7,8 @@ import twitter4j.conf.ConfigurationBuilder;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
+
 import com.amazonaws.services.lambda.runtime.Context;
 
 public class Application {
@@ -33,8 +35,9 @@ public class Application {
         return tf.getInstance();
     }
 
-    public static String searchtweets(InputStream inputStream, OutputStream outputStream, Context context) throws TwitterException {
+    public static String searchtweets(InputStream inputStream, OutputStream outputStream, Context context) throws TwitterException, InterruptedException {
 
+        TimeUnit.SECONDS.sleep(3);
 
         return "tweets_per_whatever " + context.getRemainingTimeInMillis();
     }
