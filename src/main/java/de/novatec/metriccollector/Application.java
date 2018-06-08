@@ -37,7 +37,7 @@ public class Application {
 
     public static String searchtweets(InputStream inputStream, OutputStream outputStream, Context context) throws TwitterException, InterruptedException {
 
-        TimeUnit.SECONDS.sleep(3);
+        TimeUnit.SECONDS.sleep(1);
 
         return "tweets_per_whatever " + context.getRemainingTimeInMillis();
     }
